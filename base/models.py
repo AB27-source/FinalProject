@@ -9,3 +9,6 @@ class NotesPage(models.Model):
     body = models.TextField(null=True, blank=True)
     # gets timestamp of created notes page
     created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
