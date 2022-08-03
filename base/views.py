@@ -6,6 +6,8 @@ from django.urls import reverse, reverse_lazy
 
 from django.contrib.auth.views import LoginView
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .models import NotesPage
 
 # views for user authentication
@@ -15,31 +17,41 @@ class UserLoginView(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
+        # when pages deleted it reverts user to homepage
         return reverse_lazy('pages')
-        
+
 # views for models
-class PageList(ListView):
+class PageList(LoginRequiredMixin, ListView):
+    # referencing NotesPage model
     model = NotesPage
     context_object_name = 'pages'
 
-class PageDetail(DetailView):
+class PageDetail(LoginRequiredMixin, DetailView):
+    # referencing NotesPage model
     model = NotesPage
     context_object_name = 'page'
     template_name = 'base/page.html'
 
-class CreatePage(CreateView):
+class CreatePage(LoginRequiredMixin, CreateView):
+    # referencing NotesPage model
     model = NotesPage
     fields = '__all__'
+    # when page is created it reverts user to homepage
     success_url = reverse_lazy('pages')
 
-class UpdatePage(UpdateView):
+class UpdatePage(LoginRequiredMixin, UpdateView):
+    # referencing NotesPage model
     model = NotesPage
+    # accessing every field in model
     fields = '__all__'
+    # when page is updated it reverts user to homepage
     success_url = reverse_lazy('pages')
 
-class DeletePage(DeleteView):
+class DeletePage(LoginRequiredMixin, DeleteView):
+    # referencing NotesPage model
     model = NotesPage
     context_object_name = 'page'
+    # when pages deleted it reverts user to homepage
     success_url = reverse_lazy('pages')
 
 
