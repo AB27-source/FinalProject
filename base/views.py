@@ -26,6 +26,11 @@ class PageList(LoginRequiredMixin, ListView):
     model = NotesPage
     context_object_name = 'pages'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pages'] = context['pages'].filter(user=self.request.user)
+        return context
+
 class PageDetail(LoginRequiredMixin, DetailView):
     # referencing NotesPage model
     model = NotesPage
@@ -35,15 +40,19 @@ class PageDetail(LoginRequiredMixin, DetailView):
 class CreatePage(LoginRequiredMixin, CreateView):
     # referencing NotesPage model
     model = NotesPage
-    fields = '__all__'
+    fields = ['title', 'body']
     # when page is created it reverts user to homepage
     success_url = reverse_lazy('pages')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(CreatePage, self).form_valid(form)
 
 class UpdatePage(LoginRequiredMixin, UpdateView):
     # referencing NotesPage model
     model = NotesPage
     # accessing every field in model
-    fields = '__all__'
+    fields = ['title', 'body']
     # when page is updated it reverts user to homepage
     success_url = reverse_lazy('pages')
 
