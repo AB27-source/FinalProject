@@ -1,3 +1,7 @@
+{%extends 'base/main.html'%}
+
+{%block content%}
+
 <h3>Page Form</h3>
 <a href="{% url 'pages' %}">Go Back</a>
 <form method="POST" action="">
@@ -5,3 +9,5 @@
     {{form.as_p}}
     <input type="submit" value="Submit">
 </form>
+
+{%endblock content%}

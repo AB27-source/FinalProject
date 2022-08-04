@@ -1,3 +1,8 @@
+{%extends 'base/main.html'%}
+
+{%block content%}
+{% load crispy_forms_tags %}  
+
 <h1>Register</h1>
 <form method="POST">
     {%csrf_token%}
@@ -6,3 +11,5 @@
 </form>
 
 <p> Have an account? <a href="">Login</a> </p>
+
+{%endblock content%}

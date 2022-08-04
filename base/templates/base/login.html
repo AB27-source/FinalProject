@@ -1,3 +1,7 @@
+{%extends 'base/main.html'%}
+
+{%block content%}
+
 <h1>Login</h1>
 <form method="POST">
     {%csrf_token%}
@@ -6,3 +10,5 @@
 </form>
 
 <p> Sign up for an account <a href="{% url 'register' %}">Register</a> </p>
+
+{%endblock content%}
