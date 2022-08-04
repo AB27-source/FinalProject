@@ -3,7 +3,7 @@
 {%block content%}
 
 <h3>Page Form</h3>
-<a href="{% url 'pages' %}">Go Back</a>
+<a class="login_register" href="{% url 'pages' %}">Go Back</a>
 <form method="POST" action="">
     {%csrf_token%}
     {{form.as_p}}

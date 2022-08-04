@@ -10,12 +10,17 @@
     <title>Note Taking App</title>
     <style>
         body{
-          background-color: #282a36; 
-          padding-top: 50px;
+          background-color: #282a36;
+          padding-top: 150px;
           @font-face {font-family: Monaco; src: url('Monaco 400.ttf');}
         }
-
-        h1{
+        .container{
+          max-width: 950px;
+          margin: auto;
+          background-color: #44475a;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.25) 0px -18px 34px, rgba(0, 0, 0, 0.25) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        h1,h2,h3{
           color: #ff79c6;
         }
         p, th{
@@ -27,6 +32,17 @@
         td{
           color: #f1fa8c
         }
+        a.login_register{
+          color: #50fa7b
+        }
+
+        .header{
+          display: flex;
+          justify-content: space-between;
+          padding: 10px;
+          border-radius: 5px 5px 0 0;
+        }
+
 
         
     </style>

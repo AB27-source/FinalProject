@@ -2,7 +2,7 @@
 
 {%block content%}
 
-<a href="{% url 'pages' %}">Go Back</a>
+<a class="login_register" href="{% url 'pages' %}">Go Back</a>
 <form method="POST">
     {%csrf_token%}
     <p>Are you sure you want to delete this page {{page}}</p>

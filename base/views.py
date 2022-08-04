@@ -69,7 +69,7 @@ class PageDetail(LoginRequiredMixin, DetailView):
     # referencing NotesPage model
     model = NotesPage
     context_object_name = 'page'
-    template_name = 'base/page.html'
+    template_name = 'base/notespage_list.html'
 
 class CreatePage(LoginRequiredMixin, CreateView):
     # referencing NotesPage model
