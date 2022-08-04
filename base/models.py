@@ -2,6 +2,11 @@ import imp
 from django.db import models
 from django.contrib.auth.models import User
 
+# class UserFolder(models.Model):
+#     name = models.CharField(...)
+#     parent = models.ForeignKey("Folder", null=True,)
+
+
 class NotesPage(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     # title of notes page

@@ -1,14 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.urls import reverse, reverse_lazy
 
+# importing login view
 from django.contrib.auth.views import LoginView
 
+# importing LoginRequiredMixin to prevent unauthorized users from viewing pages
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django.contrib.auth.forms import UserCreationForm
+
+from django.contrib.auth import login
+
+# importing NotesPage model
 from .models import NotesPage
+
 
 # views for user authentication
 class UserLoginView(LoginView):
@@ -20,6 +28,25 @@ class UserLoginView(LoginView):
         # when pages deleted it reverts user to homepage
         return reverse_lazy('pages')
 
+class RegisterPage(FormView):
+    template_name = 'base/register.html'
+    form_class = UserCreationForm
+    # if user is already signed in it redirects the user
+    redirect_authenticated_user = True
+    success_url = reverse_lazy('pages')
+
+    def form_valid(self, form):
+        user = form.save()
+        if user is not None:
+            login(self.request, user)
+        return super(RegisterPage, self).form_valid(form)
+
+    def get(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return redirect('pages')
+        return super(RegisterPage, self).get(*args, **kwargs)
+    
+
 # views for models
 class PageList(LoginRequiredMixin, ListView):
     # referencing NotesPage model
@@ -29,6 +56,13 @@ class PageList(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['pages'] = context['pages'].filter(user=self.request.user)
+
+        search = self.request.GET.get('search_for') or ''
+        # searching for note name
+        if search:
+            context['pages'] = context['pages'].filter(title__icontains=search)
+        
+        context['search'] = search
         return context
 
 class PageDetail(LoginRequiredMixin, DetailView):

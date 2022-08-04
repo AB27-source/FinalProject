@@ -11,6 +11,11 @@
 
 <a href="{% url 'page-create' %}">Add Pages</a>
 
+<form method="GET">
+    <input type="text" name="search_for" value="{{search}}">
+    <input type="submit" value="Search">
+</form>
+
 <table>
     <tr>
         <th>Page Names</th>
