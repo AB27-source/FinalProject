@@ -2,11 +2,18 @@
 
 {%block content%}
 
-<a class="login_register" href="{% url 'pages' %}">Go Back</a>
-<form method="POST">
-    {%csrf_token%}
-    <p>Are you sure you want to delete this page {{page}}</p>
-    <input type="submit" value="Delete"/> 
-</form>
+<div class="header-form">
+    <a class="login_register" href="{% url 'pages' %}">Go Back</a>
+</div>
+
+<div class="empty" >
+    <form method="POST">
+        {%csrf_token%}
+        <h4>Are you sure you want to delete this page {{page}}</h4>
+        <div id="padding">
+            <input class="delete-button" type="submit" value="Delete"/>
+        </div>
+    </form>
+</div>
 
 {%endblock content%}

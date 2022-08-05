@@ -6,8 +6,6 @@
     <a class="login_register" href="{% url 'pages' %}">Go Back</a>
 </div>
 
-<hr>
-
 <form method="POST" action="">
     {%csrf_token%}
     {{form.as_p}}
