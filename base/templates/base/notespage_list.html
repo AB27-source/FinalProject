@@ -17,29 +17,29 @@
 
 <hr>
 
-<form method="GET">
-    <input type="text" name="search_for" value="{{search}}">
-    <input type="submit" value="Search">
-</form>
+<div class="form-wrapper">
+    <form method="GET" style="margin-top: 20px; display: flex;">
+        <input type="text" name="search_for" value="{{search}}">
+        <input class="button" type="submit" value="Search">
+    </form>
+</div>
 
-<a href="{% url 'page-create' %}">Create Note</a>
-<table>
-    <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
+<div class="notes-wrapper">
     {% for page in pages %}
-    <tr>
-        <td>{{page.title}}</td>
-        <!-- <td><a href="{% url 'page' page.id %}">View</a></td> -->
-        <td><a href="{% url 'page-update' page.id %}">Edit</a></td>
-        <td><a href="{% url 'page-delete' page.id %}">Delete</a></td>
-    </tr>
+        <div class="note-title">
+            <a href="{% url 'page-update' page.id %}">{{page}}</a>
+            <a href="{% url 'page-delete' page.id %}">&#x1f5d1;</a>
+        </div>
     {% empty %}
-        <h3>No pages created</h3> 
+    <div class="empty">
+        <h3>No notes created</h3> 
+    </div>
     {% endfor %}
-</table>
+    
+</div>
+
+<div class="footer">
+    <a id="add-link" href="{% url 'page-create' %}"><span>&#43;</span></a>
+</div>
 
 {%endblock content%}

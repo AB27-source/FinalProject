@@ -19,6 +19,9 @@
           margin: auto;
           background-color: #44475a;
           box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.25) 0px -18px 34px, rgba(0, 0, 0, 0.25) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+          border-radius: 30px;
+          padding-bottom: 150px;
+          position: relative;
         }
         h1,h2,h3{
           color: #ff79c6;
@@ -33,18 +36,120 @@
           color: #f1fa8c
         }
         a.login_register{
-          color: #50fa7b
+          border: 1px solid #50fa7b;
+          color: #282a36;
+          border-radius: 4px;
+          background: #50fa7b;
+          text-decoration: none;
+          font-size: 18px;
+          font-weight: 400;
+          padding: 8px 12px;
+          text-align: center;
+        }
+
+        a{
+          color: #bd93f9;
+          text-decoration: none;
+        }
+        a:hover{
+          text-decoration: none;
+          color: #f8f8f2;
         }
 
         .header{
           display: flex;
           justify-content: space-between;
+          align-items: center;
           padding: 10px;
           border-radius: 5px 5px 0 0;
+          text-decoration: none;
         }
 
+        .header-form{
+          display: flex;
+          justify-content: end;
+          align-items: center;
+          padding: 10px;
+          border-radius: 5px 5px 0 0;
+          text-decoration: none;
+        }
 
+        .note-title{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 20px;
+          font-size: 30px;
+        }
+
+        .form-wrapper{
+          justify content: space-between;
+          align-items: center;
+          padding 10px;
+        }
         
+        #add-link{
+          font-size: 60px;
+          text-shadow: 1px 1px #9d5cfa;
+        }
+
+        .footer{
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          padding-right: 20px;
+        }
+
+        a.footer{
+          color: #8be9fd;
+        }
+
+        .button{
+          border: 1px solid #50fa7b;
+          background: #50fa7b;
+          color: black;
+          font-size: 24px;
+          border-radius: 5px;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+        .save-button{
+          border: 1px solid #ffb86c;
+          background: #ffb86c;
+          color: black;
+          padding 10px;
+          font-size: 24px;
+          border-radius: 15px;
+          cursor: pointer;
+          justify-content: center;
+          text-decoration: none;
+        }
+
+        input[type=text], input[type=password], textarea{
+          border: 1px solid #50fa7b;
+          border-radius: 5px;
+          padding: 10px;
+          width: 100%;
+        }
+
+        li{
+          color: #f1fa8c
+        }
+
+        .center{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .empty{
+          display:flex;
+          justify-content: center;
+          text-align: center;
+          padding-top: 100px;
+        }
+
     </style>
   </head>
   <body>

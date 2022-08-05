@@ -7,10 +7,14 @@
 <form method="POST">
     {%csrf_token%}
     {{form.as_p}}
-    <input type="submit" value="Register">
+    <div class="center">
+        <input class="button" id="register" type="submit" value="Register">
+    </div>
 </form>
 
-<p> Have an account? <a class="login_register" href="{% url 'login' %}">Login</a> </p>
+<div class="footer">
+    <p> Have an account? <a class="login_register" href="{% url 'login' %}">Login</a> </p>
+</div>
 
 {%endblock content%}
 
