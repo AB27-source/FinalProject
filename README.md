@@ -14,7 +14,6 @@ I chose to make a simplified web-based version of the apple notes app so I can h
 
 ## Technologies used:
 To make this application I used Django framework along with a couple python libraries such as gunicorn and django-on-heroku to deploy my application on heroku.
-Most of the files for the application where auto-generated using the 
-> command django-admin startproject
+Most of the files for the application where auto-generated using the command **django-admin startproject**
 I created an sqlite model for my notes page that has fields for user, title, body, and created. Next I have class based views for different components for my site such as the login page, RegisterPage, PageList, PageDetail, CreatePage, UpdatePage, and DeletePage.
 The user login and registration is handled by the Django authentication system. I used the default forms to handle the user logins and registerations and its stored within the django created models.
