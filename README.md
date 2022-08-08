@@ -17,3 +17,6 @@ To make this application I used Django framework along with a couple python libr
 Most of the files for the application where auto-generated using the command **django-admin startproject**
 I created an sqlite model for my notes page that has fields for user, title, body, and created. Next I have class based views for different components for my site such as the login page, RegisterPage, PageList, PageDetail, CreatePage, UpdatePage, and DeletePage.
 The user login and registration is handled by the Django authentication system. I used the default forms to handle the user logins and registerations and its stored within the django created models.
+
+## Bugs or Unfinished Functionality
+One unfinished funcationality of my project is to show the user when the note was created. In addition, some minor issues with my project include centering the text of my buttons.
